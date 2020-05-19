@@ -1,8 +1,8 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/539778b8-47d4-458c-90b6-67085835a03e/deploy-status)](https://app.netlify.com/sites/tezos-starter/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/539778b8-47d4-458c-90b6-67085835a03e/deploy-status)](https://app.netlify.com/sites/tezos-react-starter/deploys)
 
 # Tezos dApp React Starter Kit
 
-<a href="https://tezos-starter.netlify.app/" target="_blank">LIVE DEMO</a>
+<a href="https://tezos-react-starter.netlify.app/" target="_blank">LIVE DEMO</a>
 
 Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
 
@@ -24,25 +24,25 @@ Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
 <img src="https://i.ibb.co/mcXsBD1/Screenshot-20200519-150954.png" width="600"> 
 
 ## State
-- [Connected Context](https://github.com/protofire/tezos-starter/blob/master/src/state/connected.context.ts): Context that provides the connected account, and the service that communicates with the contract
+- [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.ts): Context that provides the connected account, and the service that communicates with the contract
 
 ## Hooks
-- [useAccount](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccount.hook.ts): Hook to get the connected account in the application
-- [useAccountAllowance](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccountAllowance.hook.ts): Hook to get the allowance of some address
-- [useAccountBalance](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccountBalance.hook.ts): Hook to get the balance of some address
-- [useContracts](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useContracts.hook.ts): Hook to get the available services in the application
-- [useGasEstimation](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useGasEstimation.hook.ts): Hook to get the gasEstimation of some method
-- [useTokenInformation](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useTokenInformation.hook.ts): Hook to get the token information of the FA 1.2 contract
+- [useAccount](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccount.hook.ts): Hook to get the connected account in the application
+- [useAccountAllowance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountAllowance.hook.ts): Hook to get the allowance of some address
+- [useAccountBalance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountBalance.hook.ts): Hook to get the balance of some address
+- [useContracts](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useContracts.hook.ts): Hook to get the available services in the application
+- [useGasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useGasEstimation.hook.ts): Hook to get the gasEstimation of some method
+- [useTokenInformation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTokenInformation.hook.ts): Hook to get the token information of the FA 1.2 contract
 
 ## Services
-- [Token Contract](https://github.com/protofire/tezos-starter/blob/master/src/services/tokenContract.service.ts): Service that communicates with the contract.
+- [Token Contract](https://github.com/protofire/tezos-react-starter/blob/master/src/services/tokenContract.service.ts): Service that communicates with the contract.
 
 ## Components
-- [Account](https://github.com/protofire/tezos-starter/blob/master/src/components/account.component.tsx): display wallet information
-- [AssetTezImage](https://github.com/protofire/tezos-starter/blob/master/src/components/assetTezImage.component.tsx): small tez logo
-- [BetterCallDev](https://github.com/protofire/tezos-starter/blob/master/src/components/betterCallDev.component.tsx): renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
-- [GasEstimation](https://github.com/protofire/tezos-starter/blob/master/src/components/gasEstimation.component.tsx): an small icon with information regarding the transaction
-- [LoadFaucet](https://github.com/protofire/tezos-starter/blob/master/src/components/loadFaucet.component.tsx): allows to import a wallet json file
+- [Account](https://github.com/protofire/tezos-react-starter/blob/master/src/components/account.component.tsx): display wallet information
+- [AssetTezImage](https://github.com/protofire/tezos-react-starter/blob/master/src/components/assetTezImage.component.tsx): small tez logo
+- [BetterCallDev](https://github.com/protofire/tezos-react-starter/blob/master/src/components/betterCallDev.component.tsx): renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
+- [GasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/components/gasEstimation.component.tsx): an small icon with information regarding the transaction
+- [LoadFaucet](https://github.com/protofire/tezos-react-starter/blob/master/src/components/loadFaucet.component.tsx): allows to import a wallet json file
 
 ## TODO:
 
@@ -70,4 +70,4 @@ Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
 - In this project `yarn start`
 
 ## Licensing
-[MIT](https://github.com/protofire/tezos-starter/blob/master/LICENSE)
+[MIT](https://github.com/protofire/tezos-react-starter/blob/master/LICENSE)
