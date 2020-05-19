@@ -13,7 +13,7 @@ Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
 - Husky hooks for Linting and Prettier
 - Example based on [taquito](https://github.com/ecadlabs/taquito)
 - Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
-- Read and write a value in a Ligo Smart Contract FA 1.2
+- Transfer some tokens, and allow an amount in a Ligo Smart Contract [FA 1.2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-7/tzip-7.md)
 
 ## Sections
 
