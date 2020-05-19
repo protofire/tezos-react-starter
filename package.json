@@ -1,0 +1,74 @@
+{
+  "name": "defi-dapp",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=v10.20.1",
+    "yarn": "^1.12.3"
+  },
+  "dependencies": {
+    "@taquito/signer": "^6.2.0-beta.0",
+    "@taquito/taquito": "^6.1.0-beta.0",
+    "@taquito/utils": "^6.2.0-beta.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-loader-spinner": "^3.1.0",
+    "@types/react-modal": "^3.10.5",
+    "@types/react-toast-notifications": "^2.4.0",
+    "big-number-input": "^1.0.2",
+    "bignumber.js": "^9.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loader-spinner": "^3.1.14",
+    "react-modal": "^3.11.2",
+    "react-scripts": "3.4.1",
+    "react-toast-notifications": "^2.4.0",
+    "react-tooltip": "^4.2.5",
+    "typescript": "~3.7.2",
+    "use-async-memo": "^1.2.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "prettier": "prettier --write './src/**/*.{ts,tsx}'",
+    "prettier-check": "prettier --check './src/**/*.{ts,tsx,json,md}'"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run prettier-check",
+      "pre-push": "yarn run lint"
+    }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.5",
+    "prettier": "^1.18.2"
+  }
+}
