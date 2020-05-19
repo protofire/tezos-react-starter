@@ -1,5 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/539778b8-47d4-458c-90b6-67085835a03e/deploy-status)](https://app.netlify.com/sites/tezos-react-starter/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7bae9967-4525-4259-a36f-30b007f05085/deploy-status)](https://app.netlify.com/sites/tezos-react-starter/deploys)
 # Tezos dApp React Starter Kit
 
 <a href="https://tezos-react-starter.netlify.app/" target="_blank">LIVE DEMO</a>
