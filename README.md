@@ -1,44 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/539778b8-47d4-458c-90b6-67085835a03e/deploy-status)](https://app.netlify.com/sites/tezos-starter/deploys)
 
-## Available Scripts
+# Tezos dApp React Starter Kit
 
-In the project directory, you can run:
+[LIVE DEMO](https://tezos-starter.netlify.app/)
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- All the [create react app](https://facebook.github.io/create-react-app) features
+- Prettier configured
+- Husky hooks for Linting and Prettier
+- Example based on [taquito](https://github.com/ecadlabs/taquito)
+- Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
+- Read and write a value in a Ligo Smart Contract FA 1.2
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## State
+- [Connected Context](https://github.com/protofire/tezos-starter/blob/master/src/state/connected.context.ts): Context that provides the connected account, and the service that communicates with the contract
 
-### `yarn test`
+## Hooks
+- [useAccount](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccount.hook.ts): Hook to get the connected account in the application
+- [useAccountAllowance](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccountAllowance.hook.ts): Hook to get the allowance of some address
+- [useAccountBalance](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useAccountBalance.hook.ts): Hook to get the balance of some address
+- [useContracts](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useContracts.hook.ts): Hook to get the available services in the application
+- [useGasEstimation](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useGasEstimation.hook.ts): Hook to get the gasEstimation of some method
+- [useTokenInformation](https://github.com/protofire/tezos-starter/blob/master/src/hooks/useTokenInformation.hook.ts): Hook to get the token information of the FA 1.2 contract
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Services
+- [Token Contract](https://github.com/protofire/tezos-starter/blob/master/src/services/tokenContract.service.ts): Service that communicates with the contract.
 
-### `yarn build`
+## Components
+- [Account](https://github.com/protofire/tezos-starter/blob/master/src/components/account.component.tsx): display wallet information
+- [AssetTezImage](https://github.com/protofire/tezos-starter/blob/master/src/components/assetTezImage.component.tsx): small tez logo
+- [BetterCallDev](https://github.com/protofire/tezos-starter/blob/master/src/components/betterCallDev.component.tsx): renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
+- [GasEstimation](https://github.com/protofire/tezos-starter/blob/master/src/components/gasEstimation.component.tsx): an small icon with information regarding the transaction
+- [LoadFaucet](https://github.com/protofire/tezos-starter/blob/master/src/components/loadFaucet.component.tsx): allows to import a wallet json file
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## TODO:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Add [TezBridge](https://www.tezbridge.com/)
+- Add more UI Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Requirements
 
-### `yarn eject`
+- yarn
+  - Mac: `brew install yarn`
+  - Linux:  https://classic.yarnpkg.com/en/docs/install/#debian-stable
+  - Win: https://classic.yarnpkg.com/en/docs/install/#windows-stable
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Optional tool
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- NVM (Node Version Manager)
+  - Mac & Linux: `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash` . For more info click [here](https://github.com/nvm-sh/nvm).
+  - Win: https://github.com/coreybutler/nvm-windows
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Install
+    yarn install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Develop
 
-## Learn More
+- In this project `yarn start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Licensing
+[MIT](https://github.com/protofire/tezos-starter/blob/master/LICENSE)
