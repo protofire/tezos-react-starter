@@ -3,7 +3,11 @@
 
 <a href="https://tezos-react-starter.netlify.app/" target="_blank">LIVE DEMO</a>
 
-Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
+- Owner wallet that can mint tokens, download [here](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214)
+- Wallet with some tokens at the moment of deployment, download [here](https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31)
+
+- Also you can always download wallets from the [faucet](https://faucet.tzalpha.net/) to use the dApp. 
+Keep in mind that the balance will be zero, and you will need to transfer some tokens with an [owner](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) using the property address|phk of the json file.
 
 ## Features
 
