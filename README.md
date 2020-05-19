@@ -2,7 +2,7 @@
 
 # Tezos dApp React Starter Kit
 
-[LIVE DEMO](https://tezos-starter.netlify.app/)
+<a href="https://tezos-starter.netlify.app/" target="_blank">LIVE DEMO</a>
 
 Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
 
