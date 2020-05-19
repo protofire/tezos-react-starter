@@ -4,6 +4,8 @@
 
 [LIVE DEMO](https://tezos-starter.netlify.app/)
 
+Download faucet from [here](https://faucet.tzalpha.net/) to use the dApp.
+
 ## Features
 
 - All the [create react app](https://facebook.github.io/create-react-app) features
@@ -12,6 +14,14 @@
 - Example based on [taquito](https://github.com/ecadlabs/taquito)
 - Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
 - Read and write a value in a Ligo Smart Contract FA 1.2
+
+## Sections
+
+#### Home
+<img src="https://i.ibb.co/mvm2Pp8/Screenshot-20200519-150924.png" width="600">
+ 
+#### Modal 
+<img src="https://i.ibb.co/mcXsBD1/Screenshot-20200519-150954.png" width="600"> 
 
 ## State
 - [Connected Context](https://github.com/protofire/tezos-starter/blob/master/src/state/connected.context.ts): Context that provides the connected account, and the service that communicates with the contract
