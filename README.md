@@ -36,6 +36,7 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
 - [useContracts](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useContracts.hook.ts): Hook to get the available services in the application
 - [useGasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useGasEstimation.hook.ts): Hook to get the gasEstimation of some method
 - [useTokenInformation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTokenInformation.hook.ts): Hook to get the token information of the FA 1.2 contract
+- [useOperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useOperationProgress.hook.ts): Hook to get the progress of some transaction, is an estimate
 
 ## Services
 - [Token Contract](https://github.com/protofire/tezos-react-starter/blob/master/src/services/tokenContract.service.ts): Service that communicates with the contract.
@@ -46,6 +47,8 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
 - [BetterCallDev](https://github.com/protofire/tezos-react-starter/blob/master/src/components/betterCallDev.component.tsx): renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
 - [GasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/components/gasEstimation.component.tsx): an small icon with information regarding the transaction
 - [LoadFaucet](https://github.com/protofire/tezos-react-starter/blob/master/src/components/loadFaucet.component.tsx): allows to import a wallet json file
+- [OperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operationProgress.component.tsx): progress bar related to some operation
+
 
 ## TODO:
 
