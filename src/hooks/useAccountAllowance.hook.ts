@@ -20,7 +20,7 @@ export const useAccountAllowance = (
       setAllowance(allowance)
     }
     fetchAllowance()
-  }, [addressFrom, addressTo])
+  }, [addressFrom, addressTo, tokenService])
 
   return {
     allowance,
