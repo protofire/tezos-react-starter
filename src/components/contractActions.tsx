@@ -74,7 +74,7 @@ const ContractActionsConnected = ({
       <footer>
         <div className="row">
           <button
-            disabled={!account || balance.isZero()}
+            disabled={!account || balance.isZero() || isMintTransaction}
             className="dark button"
             style={{ zIndex: 0 }}
             onClick={() => setModalAllowOpen(true)}
@@ -84,7 +84,7 @@ const ContractActionsConnected = ({
         </div>
         <div className="row" style={{ marginTop: '12px' }}>
           <button
-            disabled={!account || balance.isZero()}
+            disabled={!account || balance.isZero() || isMintTransaction}
             className="dark button"
             style={{ zIndex: 0 }}
             onClick={() => setModalTransferOpen(true)}
