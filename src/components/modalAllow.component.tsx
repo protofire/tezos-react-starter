@@ -101,12 +101,13 @@ export const ModalAllow = (props: Props) => {
             value={address}
             onChange={(e: any) => setAddress(e.target.value)}
             placeholder="Put an address"
+            disabled={loadingTransferTransaction}
           />
         </div>
         <div className={`${!hasAddressError ? 'is-hidden row is-left' : 'row is-left'}`}>
           <span className="text-error is-horizontal-align">Address not valid</span>
         </div>
-        <div className={`row is-left}`}>
+        <div className="row is-left">
           <span className="text-grey is-horizontal-align">
             Allowance: &nbsp;{' '}
             {tokenInformation &&
@@ -130,7 +131,7 @@ export const ModalAllow = (props: Props) => {
             />
             <button
               className="button primary"
-              disabled={!account || !tokenInformation}
+              disabled={!account || !tokenInformation || loadingTransferTransaction}
               onClick={setMax}
               style={{ marginLeft: '10px' }}
             >
@@ -138,7 +139,7 @@ export const ModalAllow = (props: Props) => {
             </button>
           </div>
         </div>
-        <div className={`row is-left}`}>
+        <div className="row is-left">
           <span className="text-grey is-horizontal-align">
             Max amount allowed: &nbsp;{' '}
             {tokenInformation &&
@@ -150,25 +151,27 @@ export const ModalAllow = (props: Props) => {
           </span>
         </div>
         <footer className="row is-right" style={{ marginTop: '30px' }}>
-          <GasEstimation
-            amount={amount}
-            addressTo={address}
-            action={Action.Allow}
-            tokenService={tokenService}
-          />
-          <button
-            className="button primary"
-            disabled={disableButtonSubmit}
-            onClick={submit}
-            style={{ marginLeft: '1rem' }}
-          >
-            {account && !loadingTransferTransaction && Action.Allow}
-            {!account && !loadingTransferTransaction && 'Please connect to your account'}
-            {loadingTransferTransaction && 'Waiting...'}
-          </button>
-          <button disabled={disableButtonCancel} onClick={close} className="button">
-            Cancel
-          </button>
+          <div className="col-12 is-right is-marginless">
+            <GasEstimation
+              amount={amount}
+              addressTo={address}
+              action={Action.Allow}
+              tokenService={tokenService}
+            />
+            <button
+              className="button primary"
+              disabled={disableButtonSubmit}
+              onClick={submit}
+              style={{ marginLeft: '1rem' }}
+            >
+              {account && !loadingTransferTransaction && Action.Allow}
+              {!account && !loadingTransferTransaction && 'Please connect to your account'}
+              {loadingTransferTransaction && 'Waiting...'}
+            </button>
+            <button disabled={disableButtonCancel} onClick={close} className="button">
+              Cancel
+            </button>
+          </div>
         </footer>
       </div>
     </ModalWrapper>
