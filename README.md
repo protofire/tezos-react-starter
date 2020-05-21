@@ -27,7 +27,7 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
 <img src="https://i.ibb.co/mcXsBD1/Screenshot-20200519-150954.png" width="600"> 
 
 ## State
-- [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.ts): Context that provides the connected account, and the service that communicates with the contract
+- [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.tsx): Context that provides the connected account, and the service that communicates with the contract
 
 ## Hooks
 - [useAccount](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccount.hook.ts): Hook to get the connected account in the application
