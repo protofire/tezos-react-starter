@@ -75,7 +75,7 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
     yarn install
 
 ## Develop
-
+- Rename the `.env.example` to `.env`
 - In this project `yarn start`
 
 ## Licensing
