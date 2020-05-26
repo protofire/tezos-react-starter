@@ -1,15 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7bae9967-4525-4259-a36f-30b007f05085/deploy-status)](https://app.netlify.com/sites/tezos-react-starter/deploys)
 # Tezos dApp React Starter Kit
 
-## Features
-
-- All the [create react app](https://facebook.github.io/create-react-app) features
-- Prettier configured
-- Husky hooks for Linting and Prettier
-- Example based on [taquito](https://github.com/ecadlabs/taquito)
-- Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
-- Transfer some tokens, and allow an amount in a Ligo Smart Contract [FA 1.2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-7/tzip-7.md)
-
 ## Demo
 <a href="https://tezos-react-starter.netlify.app/" target="_blank">LIVE DEMO</a>
 
@@ -20,6 +11,15 @@
 - Also you can always download wallets from the [faucet](https://faucet.tzalpha.net/) to use the dApp. 
 Keep in mind that the balance will be zero, and you will need to transfer some tokens with an [owner](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) using the property address|phk of the json file.
 
+
+## Features
+
+- All the [create react app](https://facebook.github.io/create-react-app) features
+- Prettier configured
+- Husky hooks for Linting and Prettier
+- Example based on [taquito](https://github.com/ecadlabs/taquito)
+- Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
+- Transfer some tokens, and allow an amount in a Ligo Smart Contract [FA 1.2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-7/tzip-7.md)
 
 ## Sections
 
