@@ -4,9 +4,9 @@ Build React-based DApps in Tezos. Check out a <a href="https://tezos-react-start
 
 ## How to start
 - Download an [owner wallet](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) that can mint tokens
-- Download a [wallet]((https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31)) with some tokens.
+- Download a [wallet](https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31) with some tokens.
 
-To use a DApp, you can always download wallets from [Tezos faucet]((https://faucet.tzalpha.net/)). Note that the balance will be zero, and you will need to transfer some tokens as an [owner]((https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214)) using the address|phk property of a JSON file.
+To use a DApp, you can always download wallets from [Tezos faucet](https://faucet.tzalpha.net/)). Note that the balance will be zero, and you will need to transfer some tokens as an [owner](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) using the address|phk property of a JSON file.
 
 ## Features
 
