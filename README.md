@@ -1,25 +1,21 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7bae9967-4525-4259-a36f-30b007f05085/deploy-status)](https://app.netlify.com/sites/tezos-react-starter/deploys)
-# Tezos dApp React Starter Kit
+# Tezos DApp React Starter Kit
+Build React-based DApps in Tezos. Check out a <a href="https://tezos-react-starter.netlify.app/" target="_blank">demo</a>.
 
-## Demo
-<a href="https://tezos-react-starter.netlify.app/" target="_blank">LIVE DEMO</a>
+### How to start
+- Download an [owner wallet](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) that can mint tokens
+- Download a [wallet]((https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31)) with some tokens.
 
-### Wallets you can use with the DEMO
-- Owner wallet that can mint tokens, download [here](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214)
-- Wallet with some tokens at the moment of deployment, download [here](https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31)
-
-- Also you can always download wallets from the [faucet](https://faucet.tzalpha.net/) to use the dApp. 
-Keep in mind that the balance will be zero, and you will need to transfer some tokens with an [owner](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) using the property address|phk of the json file.
-
+To use a DApp, you can always download wallets from [Tezos faucet]((https://faucet.tzalpha.net/)). Note that the balance will be zero, and you will need to transfer some tokens as an [owner]((https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214)) using the address|phk property of a JSON file.
 
 ## Features
 
-- All the [create react app](https://facebook.github.io/create-react-app) features
-- Prettier configured
-- Husky hooks for Linting and Prettier
-- Example based on [taquito](https://github.com/ecadlabs/taquito)
-- Connection to a wallet, previous download from [faucet](https://faucet.tzalpha.net/)
-- Transfer some tokens, and allow an amount in a Ligo Smart Contract [FA 1.2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-7/tzip-7.md)
+- [Create React app](https://facebook.github.io/create-react-app)
+- [Prettier](https://prettier.io/) configured
+- [Husky](https://github.com/typicode/husky) hooks for Linting and Prettier-based code linting
+- Examples based on [taquito](https://github.com/ecadlabs/taquito)
+- Connection to a wallet previously downloaded from the [faucet](https://faucet.tzalpha.net/)
+- Token transfer and amount limit configuration in a LIGO [FA1.2](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-7/tzip-7.md) smart contract
 
 ## Sections
 
@@ -30,27 +26,28 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
 <img src="https://i.ibb.co/mcXsBD1/Screenshot-20200519-150954.png" width="600"> 
 
 ## State
-- [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.tsx): Context that provides the connected account, and the service that communicates with the contract
+- [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.tsx) provides a connected account and a service that communicates with a contract
+
 
 ## Hooks
-- [useAccount](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccount.hook.ts): Hook to get the connected account in the application
-- [useAccountAllowance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountAllowance.hook.ts): Hook to get the allowance of some address
-- [useAccountBalance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountBalance.hook.ts): Hook to get the balance of some address
-- [useContracts](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useContracts.hook.ts): Hook to get the available services in the application
-- [useGasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useGasEstimation.hook.ts): Hook to get the gasEstimation of some method
-- [useTokenInformation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTokenInformation.hook.ts): Hook to get the token information of the FA 1.2 contract
-- [useOperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useOperationProgress.hook.ts): Hook to get the progress of some transaction, is an estimate
+- [useAccount](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccount.hook.ts) gets a connected account in an application
+- [useAccountAllowance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountAllowance.hook.ts) gets address allowance
+- [useAccountBalance](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useAccountBalance.hook.ts) gets an address balance
+- [useContracts](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useContracts.hook.ts) gets available services in an application
+- [useGasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useGasEstimation.hook.ts) gets gasEstimation of a method defined in a contract
+- [useTokenInformation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTokenInformation.hook.ts) gets token information of a FA1.2 contract
+- [useOperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useOperationProgress.hook.ts) get the progress of some transaction, is an estimate
 
 ## Services
-- [Token Contract](https://github.com/protofire/tezos-react-starter/blob/master/src/services/tokenContract.service.ts): Service that communicates with the contract.
+- [Token Contract](https://github.com/protofire/tezos-react-starter/blob/master/src/services/tokenContract.service.ts) a service that communicates with the contract.
 
 ## Components
-- [Account](https://github.com/protofire/tezos-react-starter/blob/master/src/components/account.component.tsx): display wallet information
-- [AssetTezImage](https://github.com/protofire/tezos-react-starter/blob/master/src/components/assetTezImage.component.tsx): small tez logo
-- [BetterCallDev](https://github.com/protofire/tezos-react-starter/blob/master/src/components/betterCallDev.component.tsx): renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
-- [GasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/components/gasEstimation.component.tsx): an small icon with information regarding the transaction
-- [LoadFaucet](https://github.com/protofire/tezos-react-starter/blob/master/src/components/loadFaucet.component.tsx): allows to import a wallet json file
-- [OperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operationProgress.component.tsx): progress bar related to some operation
+- [Account](https://github.com/protofire/tezos-react-starter/blob/master/src/components/account.component.tsx) display wallet information
+- [AssetTezImage](https://github.com/protofire/tezos-react-starter/blob/master/src/components/assetTezImage.component.tsx) provides the Tezos logo
+- [BetterCallDev](https://github.com/protofire/tezos-react-starter/blob/master/src/components/betterCallDev.component.tsx) renders a link with a transaction to [Better Call Dev](https://better-call.dev/)
+- [GasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/components/gasEstimation.component.tsx) provides an icon with information regarding the transaction
+- [LoadFaucet](https://github.com/protofire/tezos-react-starter/blob/master/src/components/loadFaucet.component.tsx) allows for importing the wallet's JSON file
+- [OperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operationProgress.component.tsx) progress bar related to some operation
 
 
 ## TODO:
@@ -76,7 +73,7 @@ Keep in mind that the balance will be zero, and you will need to transfer some t
 
 ## Develop
 - Rename the `.env.example` to `.env`
-- In this project `yarn start`
+- Use `yarn start` in this project
 
 ## Licensing
 [MIT](https://github.com/protofire/tezos-react-starter/blob/master/LICENSE)
