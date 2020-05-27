@@ -2,7 +2,7 @@
 # Tezos DApp React Starter Kit
 Build React-based DApps in Tezos. Check out a <a href="https://tezos-react-starter.netlify.app/" target="_blank">demo</a>.
 
-### How to start
+## How to start
 - Download an [owner wallet](https://gist.github.com/mariano-aguero/808d4d64a89e8fd673b9cd3cce629214) that can mint tokens
 - Download a [wallet]((https://gist.github.com/mariano-aguero/c2e7d15f77ddc3f35df5e8b21efb5f31)) with some tokens.
 
