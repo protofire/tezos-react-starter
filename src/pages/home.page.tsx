@@ -4,6 +4,7 @@ import { ToastProvider } from 'react-toast-notifications'
 import { Header } from '../components/header.component'
 import { ContractBalance } from '../components/contractBalance'
 import { ContractActions } from '../components/contractActions'
+import { DisclaimerWarning } from '../components/disclaimerWarning.component'
 import { ConnectedNetwork } from '../state/connected.context'
 
 export const HomePage = () => {
@@ -20,6 +21,9 @@ export const HomePage = () => {
               <ContractActions />
             </div>
           </div>{' '}
+        </div>
+        <div className="nav-center disclaimer" style={{ marginTop: '30px' }}>
+          <DisclaimerWarning />
         </div>
       </ConnectedNetwork>
     </ToastProvider>

@@ -3,6 +3,7 @@ import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import BigNumber from 'bignumber.js'
 import { useToasts } from 'react-toast-notifications'
+import { TezosToolkit } from '@taquito/taquito'
 
 import { TokenService } from '../services/tokenContract.service'
 import { useConnectedContext } from '../state/connected.context'
@@ -20,11 +21,13 @@ const ContractActionsConnected = ({
   tokenService,
   updateFlag,
   setUpdateFlag,
+  taquito,
 }: {
   account: Maybe<Account>
   tokenService: TokenService
   updateFlag: boolean
   setUpdateFlag: (flag: boolean) => void
+  taquito: TezosToolkit
 }) => {
   const { addToast } = useToasts()
 
@@ -43,7 +46,7 @@ const ContractActionsConnected = ({
       const amount = new BigNumber(5)
       const amountInUnits = unitsInTokenAmount(amount, tokenInformation.decimals)
 
-      const operation = await tokenService.mint(amountInUnits.toString())
+      const operation = await tokenService.mint(amountInUnits)
       await operation.confirmation()
 
       const content = (
@@ -113,6 +116,7 @@ const ContractActionsConnected = ({
               setModalAllowOpen(false)
               setUpdateFlag(!updateFlag)
             }}
+            taquito={taquito}
           />
         )}
         {account && (
@@ -125,6 +129,7 @@ const ContractActionsConnected = ({
               setModalTransferOpen(false)
               setUpdateFlag(!updateFlag)
             }}
+            taquito={taquito}
           />
         )}
       </footer>
@@ -149,7 +154,7 @@ const ContractActionsDisconnected = () => {
 
 export const ContractActions = () => {
   const context = useConnectedContext()
-  const { tokenService, account, updateFlag, setUpdateFlag } = context
+  const { tokenService, account, updateFlag, setUpdateFlag, taquito } = context
 
   return (
     <>
@@ -159,6 +164,7 @@ export const ContractActions = () => {
           setUpdateFlag={setUpdateFlag}
           tokenService={tokenService}
           updateFlag={updateFlag}
+          taquito={taquito}
         />
       ) : (
         <ContractActionsDisconnected />

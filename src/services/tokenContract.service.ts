@@ -1,28 +1,31 @@
 import { Tezos } from '@taquito/taquito'
-import { InMemorySigner } from '@taquito/signer'
 import BigNumber from 'bignumber.js'
+import { TezosToolkit } from '@taquito/taquito'
+
 import { UseTokenInformation } from '../utils/types'
+import { baseConfig } from '../config/constants'
 
 class TokenService {
   contractAddress: string
-  rpc: string
-  signer?: InMemorySigner
+  contract: any
+  signer: any
 
-  constructor(contractAddress: string, rpc: string, signer?: InMemorySigner) {
+  constructor(contractAddress: string, contract: any, signer: any) {
     this.contractAddress = contractAddress
-    this.rpc = rpc
-    if (signer) this.signer = signer
+    this.contract = contract
+    this.signer = signer
   }
+
+  static async create(contractAddress: string, taquito: TezosToolkit) {
+    const contract = await taquito.contract.at(contractAddress)
+    return new TokenService(contractAddress, contract, taquito.signer)
+  }
+
+  getStorage = async () => this.contract.storage()
 
   getAccounts = async (): Promise<any> => {
     const { accounts } = await this.getStorage()
     return accounts
-  }
-
-  getStorage = async (): Promise<any> => {
-    Tezos.setProvider({ rpc: this.rpc, signer: this.signer })
-    const contract = await Tezos.contract.at(this.contractAddress)
-    return contract.storage()
   }
 
   getInformation = async (): Promise<UseTokenInformation> => {
@@ -60,24 +63,22 @@ class TokenService {
   }
 
   allow = async (address: string, amountToAllow: BigNumber) => {
-    const contract = await Tezos.contract.at(this.contractAddress)
-    return contract.methods.approve(address, amountToAllow.toNumber()).send()
+    return this.contract.methods.approve(address, amountToAllow.toNumber()).send()
   }
 
   transfer = async (addressFrom: string, addressTo: string, amountToTransfer: BigNumber) => {
-    const contractPool = await Tezos.contract.at(this.contractAddress)
-    return contractPool.methods.transfer(addressFrom, addressTo, amountToTransfer.toNumber()).send()
+    return this.contract.methods
+      .transfer(addressFrom, addressTo, amountToTransfer.toNumber())
+      .send()
   }
 
-  mint = async (amount: string) => {
-    const contractPool = await Tezos.contract.at(this.contractAddress)
-    return contractPool.methods.mint(amount).send()
+  mint = async (amountToMint: BigNumber) => {
+    return this.contract.methods.mint(amountToMint.toNumber()).send()
   }
 
   getGasEstimationForAllow = async (address: string, amountToAllow: BigNumber) => {
-    const contractPool = await Tezos.contract.at(this.contractAddress)
-
-    const tx = contractPool.methods.approve(address, amountToAllow.toNumber()).toTransferParams()
+    const tx = this.contract.methods.approve(address, amountToAllow.toNumber()).toTransferParams()
+    Tezos.setProvider({ ...baseConfig, signer: this.signer })
     return Tezos.estimate.transfer(tx)
   }
 
@@ -86,11 +87,10 @@ class TokenService {
     addressTo: string,
     amountToTransfer: BigNumber,
   ) => {
-    const contractPool = await Tezos.contract.at(this.contractAddress)
-
-    const tx = contractPool.methods
+    const tx = this.contract.methods
       .transfer(addressFrom, addressTo, amountToTransfer.toNumber())
       .toTransferParams()
+    Tezos.setProvider({ ...baseConfig, signer: this.signer })
     return Tezos.estimate.transfer(tx)
   }
 

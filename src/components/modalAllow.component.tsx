@@ -2,6 +2,7 @@ import React, { HTMLAttributes, useState } from 'react'
 import { BigNumberInput } from 'big-number-input'
 import BigNumber from 'bignumber.js'
 import { useToasts } from 'react-toast-notifications'
+import { TezosToolkit } from '@taquito/taquito'
 
 import { ModalWrapper } from './modalWrapper.component'
 import { GasEstimation } from './gasEstimation.component'
@@ -12,6 +13,7 @@ import { isAddressValid, tokenAmountInUnitsWithSymbol } from '../utils/tool'
 import { useAccountBalance } from '../hooks/useAccountBalance.hook'
 import { useTokenInformation } from '../hooks/useTokenInformation.hook'
 import { useAccountAllowance } from '../hooks/useAccountAllowance.hook'
+import { OperationProgress } from './operationProgress.component'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -19,16 +21,17 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   tokenService: TokenService
   account: Account
   updateFlag: boolean
+  taquito: TezosToolkit
 }
 
 export const ModalAllow = (props: Props) => {
-  const { onClose, isOpen, tokenService, account, updateFlag } = props
+  const { onClose, isOpen, tokenService, account, updateFlag, taquito } = props
 
   const { addToast } = useToasts()
 
   const [amount, setAmount] = useState<Maybe<BigNumber>>(null)
   const [address, setAddress] = useState<string>('')
-  const [loadingTransferTransaction, setLoadingTransferTransaction] = useState<boolean>(false)
+  const [loadingAllowTransaction, setLoadingAllowTransaction] = useState<boolean>(false)
 
   const tokenInformation = useTokenInformation(tokenService)
   const { allowance } = useAccountAllowance(account.pkh, address, tokenService)
@@ -47,7 +50,7 @@ export const ModalAllow = (props: Props) => {
   const submit = async () => {
     if (!amount || !tokenInformation) return
 
-    setLoadingTransferTransaction(true)
+    setLoadingAllowTransaction(true)
 
     let operation: any
     try {
@@ -75,7 +78,7 @@ export const ModalAllow = (props: Props) => {
       })
     }
 
-    setLoadingTransferTransaction(false)
+    setLoadingAllowTransaction(false)
   }
 
   const hasAddressError = address ? !isAddressValid(address) : false
@@ -85,10 +88,10 @@ export const ModalAllow = (props: Props) => {
     (amount && amount.isZero()) ||
     !address ||
     (allowance && !allowance.isZero()) ||
-    loadingTransferTransaction ||
+    loadingAllowTransaction ||
     hasAddressError
 
-  const disableButtonCancel = loadingTransferTransaction
+  const disableButtonCancel = loadingAllowTransaction
 
   return (
     <ModalWrapper isOpen={isOpen} onRequestClose={close}>
@@ -101,7 +104,7 @@ export const ModalAllow = (props: Props) => {
             value={address}
             onChange={(e: any) => setAddress(e.target.value)}
             placeholder="Put an address"
-            disabled={loadingTransferTransaction}
+            disabled={loadingAllowTransaction}
           />
         </div>
         <div className={`${!hasAddressError ? 'is-hidden row is-left' : 'row is-left'}`}>
@@ -131,7 +134,7 @@ export const ModalAllow = (props: Props) => {
             />
             <button
               className="button primary"
-              disabled={!account || !tokenInformation || loadingTransferTransaction}
+              disabled={!account || !tokenInformation || loadingAllowTransaction}
               onClick={setMax}
               style={{ marginLeft: '10px' }}
             >
@@ -150,8 +153,8 @@ export const ModalAllow = (props: Props) => {
               )}
           </span>
         </div>
-        <footer className="row is-right" style={{ marginTop: '30px' }}>
-          <div className="col-12 is-right is-marginless">
+        <footer className="row" style={{ marginTop: '30px' }}>
+          <div className="col-12 is-right">
             <GasEstimation
               amount={amount}
               addressTo={address}
@@ -164,14 +167,20 @@ export const ModalAllow = (props: Props) => {
               onClick={submit}
               style={{ marginLeft: '1rem' }}
             >
-              {account && !loadingTransferTransaction && Action.Allow}
-              {!account && !loadingTransferTransaction && 'Please connect to your account'}
-              {loadingTransferTransaction && 'Waiting...'}
+              {account && !loadingAllowTransaction && Action.Allow}
+              {!account && !loadingAllowTransaction && 'Please connect to your account'}
+              {loadingAllowTransaction && 'Waiting...'}
             </button>
             <button disabled={disableButtonCancel} onClick={close} className="button">
               Cancel
             </button>
           </div>
+
+          {loadingAllowTransaction && (
+            <div className="col-12">
+              <OperationProgress taquito={taquito} />
+            </div>
+          )}
         </footer>
       </div>
     </ModalWrapper>
