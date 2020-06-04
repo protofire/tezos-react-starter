@@ -72,7 +72,7 @@ const ContractActionsConnected = ({
   return (
     <div className="card bg-light" style={{ width: '300px', height: 'auto' }}>
       <header>
-        <h4>My actions</h4>
+        <h4>Contract actions</h4>
       </header>
       <footer>
         <div className="row">
