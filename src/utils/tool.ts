@@ -3,7 +3,7 @@ import { Tezos } from '@taquito/taquito'
 import { InMemorySigner } from '@taquito/signer'
 import { validateKeyHash, ValidationResult } from '@taquito/utils'
 
-import { TEZOS_RPC as rpc } from '../config/constants'
+import { BAKING_BAD_API, TEZOS_RPC as rpc, TOKEN_CONTRACT_ADDRESS } from '../config/constants'
 import { Account } from '../utils/types'
 
 export const truncateStringInTheMiddle = (
@@ -84,3 +84,37 @@ export const tokenAmountInUnitsWithSymbol = (units: any, decimals: BigNumber, sy
 
 export const isAddressValid = (address: string): boolean =>
   validateKeyHash(address) === ValidationResult.VALID
+
+export const fetchOperations = async (
+  lastIdParam: number,
+  limit: number,
+): Promise<{ operations: any[]; lastId: number }> => {
+  let callUntil = true
+  let totalOperations: any[] = []
+
+  while (callUntil) {
+    let url = `${BAKING_BAD_API}contract/carthagenet/${TOKEN_CONTRACT_ADDRESS}/operations`
+    if (lastIdParam > 0) {
+      url = `${BAKING_BAD_API}contract/carthagenet/${TOKEN_CONTRACT_ADDRESS}/operations?last_id=${lastIdParam}`
+    }
+
+    const response = await fetch(url)
+    const { operations, last_id: lastId } = await response.json()
+
+    // Filter only this actions
+    const operationsFiltered = operations.filter((operation: any) =>
+      ['transfer', 'mint', 'allow'].includes(operation.entrypoint),
+    )
+    if (operationsFiltered.length > 0) {
+      totalOperations = [...totalOperations, ...operationsFiltered]
+    }
+
+    callUntil = operations.length > 0 && lastId && totalOperations.length < limit
+    lastIdParam = lastId
+  }
+
+  return {
+    operations: totalOperations,
+    lastId: lastIdParam,
+  }
+}

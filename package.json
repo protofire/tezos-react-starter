@@ -22,6 +22,7 @@
     "@types/react-toast-notifications": "^2.4.0",
     "big-number-input": "^1.0.2",
     "bignumber.js": "^9.0.0",
+    "dayjs": "^1.8.28",
     "rc-progress": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -30,6 +31,7 @@
     "react-scripts": "3.4.1",
     "react-toast-notifications": "^2.4.0",
     "react-tooltip": "^4.2.5",
+    "react-waypoint": "^9.0.2",
     "typescript": "~3.7.2",
     "use-async-memo": "^1.2.2"
   },

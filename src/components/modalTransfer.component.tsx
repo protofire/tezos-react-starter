@@ -2,6 +2,7 @@ import React, { HTMLAttributes, useState } from 'react'
 import { BigNumberInput } from 'big-number-input'
 import BigNumber from 'bignumber.js'
 import { useToasts } from 'react-toast-notifications'
+import { TezosToolkit } from '@taquito/taquito'
 
 import { ModalWrapper } from './modalWrapper.component'
 import { GasEstimation } from './gasEstimation.component'
@@ -11,6 +12,7 @@ import { TransferMessage } from './messages.component'
 import { isAddressValid, tokenAmountInUnitsWithSymbol } from '../utils/tool'
 import { useTokenInformation } from '../hooks/useTokenInformation.hook'
 import { useAccountAllowance } from '../hooks/useAccountAllowance.hook'
+import { OperationProgress } from './operationProgress.component'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -18,10 +20,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   tokenService: TokenService
   account: Account
   updateFlag: boolean
+  taquito: TezosToolkit
 }
 
 export const ModalTransfer = (props: Props) => {
-  const { onClose, isOpen, tokenService, account } = props
+  const { onClose, isOpen, tokenService, account, taquito } = props
 
   const { addToast } = useToasts()
 
@@ -148,8 +151,8 @@ export const ModalTransfer = (props: Props) => {
               )}
           </span>
         </div>
-        <footer className="row is-right" style={{ marginTop: '30px' }}>
-          <div className="col-12 is-right is-marginless">
+        <footer className="row" style={{ marginTop: '30px' }}>
+          <div className="col-12 is-right">
             <GasEstimation
               amount={amount}
               addressFrom={account.pkh}
@@ -171,6 +174,12 @@ export const ModalTransfer = (props: Props) => {
               Cancel
             </button>
           </div>
+
+          {loadingTransferTransaction && (
+            <div className="col-12">
+              <OperationProgress taquito={taquito} />
+            </div>
+          )}
         </footer>
       </div>
     </ModalWrapper>

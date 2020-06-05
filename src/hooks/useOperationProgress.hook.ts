@@ -1,25 +1,15 @@
 import { useEffect, useState } from 'react'
+import { TezosToolkit } from '@taquito/taquito'
 
-import { TEZOS_RPC as rpc } from '../config/constants'
-import { Tezos } from '@taquito/taquito'
-import { Account } from '../utils/types'
-import { InMemorySigner } from '@taquito/signer'
-
-export const useOperationProgress = (account: Maybe<Account>): number => {
+export const useOperationProgress = (taquito: TezosToolkit): number => {
   const [progress, setProgress] = useState<number>(0)
   const [timestamp, setTimestamp] = useState<Maybe<Date>>(null)
 
-  const signer = account
-    ? InMemorySigner.fromFundraiser(account.email, account.password, account.mnemonic.join(' '))
-    : undefined
-
-  Tezos.setProvider({ rpc, signer })
-
   useEffect(() => {
-    Tezos.rpc.getBlockHeader().then(({ timestamp }) => {
+    taquito.rpc.getBlockHeader().then(({ timestamp }) => {
       setTimestamp(new Date(timestamp))
     })
-  }, [])
+  }, [taquito.rpc])
 
   useEffect(() => {
     let buffer = 1
