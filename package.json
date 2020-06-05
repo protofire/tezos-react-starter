@@ -33,7 +33,8 @@
     "react-tooltip": "^4.2.5",
     "react-waypoint": "^9.0.2",
     "typescript": "~3.7.2",
-    "use-async-memo": "^1.2.2"
+    "use-async-memo": "^1.2.2",
+    "websocket-extensions": "0.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
