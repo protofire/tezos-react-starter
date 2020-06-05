@@ -24,6 +24,9 @@ To use a DApp, you can always download wallets from [Tezos faucet](https://fauce
  
 #### Modal 
 <img src="https://i.ibb.co/mcXsBD1/Screenshot-20200519-150954.png" width="600"> 
+ 
+#### Operations 
+<img src="https://i.ibb.co/jwxxHBS/Screenshot-20200605-094111.png" width="600"> 
 
 ## State
 - [Connected Context](https://github.com/protofire/tezos-react-starter/blob/master/src/state/connected.context.tsx) provides a connected account and a service that communicates with a contract
@@ -37,6 +40,8 @@ To use a DApp, you can always download wallets from [Tezos faucet](https://fauce
 - [useGasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useGasEstimation.hook.ts) gets gasEstimation of a method defined in a contract
 - [useTokenInformation](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTokenInformation.hook.ts) gets token information of a FA1.2 contract
 - [useOperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useOperationProgress.hook.ts) get the progress of some transaction, is an estimate
+- [useOperations](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useOperations.hook.ts) gets available operations
+- [useTaquito](https://github.com/protofire/tezos-react-starter/blob/master/src/hooks/useTaquito.hook.ts) gets taquito instance
 
 ## Services
 - [Token Contract](https://github.com/protofire/tezos-react-starter/blob/master/src/services/tokenContract.service.ts) a service that communicates with the contract.
@@ -48,6 +53,7 @@ To use a DApp, you can always download wallets from [Tezos faucet](https://fauce
 - [GasEstimation](https://github.com/protofire/tezos-react-starter/blob/master/src/components/gasEstimation.component.tsx) provides an icon with information regarding the transaction
 - [LoadFaucet](https://github.com/protofire/tezos-react-starter/blob/master/src/components/loadFaucet.component.tsx) allows for importing the wallet's JSON file
 - [OperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operationProgress.component.tsx) progress bar related to some operation
+- [Operations](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operations.component.tsx) display all the operations related to the contract
 
 
 ## TODO:
