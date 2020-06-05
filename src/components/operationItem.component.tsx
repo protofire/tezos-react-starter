@@ -31,7 +31,7 @@ const Transfer = (props: {
   const { entrypoint, from, to, amount, dateHumanized } = props
   return (
     <>
-      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>{' '}
+      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>&nbsp;&nbsp;
       <strong>{entrypoint}</strong> an amount of {amount} to the address{' '}
       <em title={to}>{truncateStringInTheMiddle(to, 6, 4)}</em>, {dateHumanized}.
     </>
@@ -48,7 +48,7 @@ const Mint = (props: {
 
   return (
     <>
-      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>{' '}
+      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>&nbsp;&nbsp;
       <strong>{entrypoint}</strong> an amount of {amount}, {dateHumanized}.
     </>
   )
@@ -65,7 +65,7 @@ const Approve = (props: {
 
   return (
     <>
-      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>{' '}
+      The address <em title={from}>{truncateStringInTheMiddle(from, 6, 4)}</em>&nbsp;&nbsp;
       <strong>{entrypoint}</strong> an amount of {amount} to the address{' '}
       <em title={to}>{truncateStringInTheMiddle(to, 6, 4)}</em>, {dateHumanized}.
     </>
