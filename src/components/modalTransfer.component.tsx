@@ -11,7 +11,7 @@ import { Action, Account } from '../utils/types'
 import { TransferMessage } from './messages.component'
 import { isAddressValid, tokenAmountInUnitsWithSymbol } from '../utils/tool'
 import { useTokenInformation } from '../hooks/useTokenInformation.hook'
-import { useAccountAllowance } from '../hooks/useAccountAllowance.hook'
+import { useAccountBalance } from '../hooks/useAccountBalance.hook'
 import { OperationProgress } from './operationProgress.component'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ModalTransfer = (props: Props) => {
-  const { onClose, isOpen, tokenService, account, taquito } = props
+  const { onClose, isOpen, tokenService, account, taquito, updateFlag } = props
 
   const { addToast } = useToasts()
 
@@ -33,10 +33,10 @@ export const ModalTransfer = (props: Props) => {
   const [loadingTransferTransaction, setLoadingTransferTransaction] = useState<boolean>(false)
 
   const tokenInformation = useTokenInformation(tokenService)
-  const { allowance } = useAccountAllowance(account.pkh, address, tokenService)
+  const { balance } = useAccountBalance(account, tokenService, updateFlag)
 
   const setMax = async () => {
-    setAmount(allowance)
+    setAmount(balance)
   }
 
   const close = () => {
@@ -85,7 +85,7 @@ export const ModalTransfer = (props: Props) => {
     !amount ||
     (amount && amount.isZero()) ||
     !address ||
-    (allowance && allowance.isZero()) ||
+    (balance && balance.isZero()) ||
     loadingTransferTransaction ||
     hasAddressError
 
@@ -108,18 +108,6 @@ export const ModalTransfer = (props: Props) => {
         <div className={`${!hasAddressError ? 'is-hidden row is-left' : 'row is-left'}`}>
           <span className="text-error is-horizontal-align">Address not valid</span>
         </div>
-        <div className="row is-left">
-          <span className="text-grey is-horizontal-align">
-            Allowance: &nbsp;{' '}
-            {tokenInformation &&
-              allowance &&
-              tokenAmountInUnitsWithSymbol(
-                allowance,
-                tokenInformation.decimals,
-                tokenInformation.symbol,
-              )}
-          </span>
-        </div>
         <div className="row" style={{ marginTop: '30px' }}>
           <div className="is-center">
             <BigNumberInput
@@ -128,7 +116,7 @@ export const ModalTransfer = (props: Props) => {
                 newValue ? setAmount(new BigNumber(newValue)) : setAmount(null)
               }
               value={amount ? amount.toString() : ''}
-              max={allowance ? allowance.toString() : ''}
+              max={balance ? balance.toString() : ''}
             />
             <button
               className="button primary"
@@ -145,7 +133,7 @@ export const ModalTransfer = (props: Props) => {
             Max amount allowed: &nbsp;{' '}
             {tokenInformation &&
               tokenAmountInUnitsWithSymbol(
-                allowance,
+                balance,
                 tokenInformation.decimals,
                 tokenInformation.symbol,
               )}

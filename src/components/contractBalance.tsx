@@ -98,8 +98,7 @@ const ContractBalanceDisconnected = () => {
 }
 
 export const ContractBalance = () => {
-  const context = useConnectedContext()
-  const { tokenService, account, updateFlag } = context
+  const { tokenService, account, updateFlag } = useConnectedContext()
 
   return (
     <>

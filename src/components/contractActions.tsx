@@ -153,8 +153,7 @@ const ContractActionsDisconnected = () => {
 }
 
 export const ContractActions = () => {
-  const context = useConnectedContext()
-  const { tokenService, account, updateFlag, setUpdateFlag, taquito } = context
+  const { tokenService, account, updateFlag, setUpdateFlag, taquito } = useConnectedContext()
 
   return (
     <>
