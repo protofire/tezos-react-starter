@@ -55,6 +55,8 @@ To use a DApp, you can always download wallets from [Tezos faucet](https://fauce
 - [OperationProgress](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operationProgress.component.tsx) progress bar related to some operation
 - [Operations](https://github.com/protofire/tezos-react-starter/blob/master/src/components/operations.component.tsx) display all the operations related to the contract
 
+## FA 1.2 Contract
+You can access to the contract right [here](https://ide.ligolang.org/p/rUi98TfooS8_H_skgKj4wg)
 
 ## TODO:
 
